@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { formatDate } from "app/lib/utils";
+import { logEvent } from "app/lib/utils";
 
 export function Posts({ posts, path }) {
   return (
@@ -18,6 +21,7 @@ export function Posts({ posts, path }) {
           <Link
             key={post.slug}
             className="flex flex-col sm:flex-row gap-4"
+            onClick={() => logEvent("post", { title: post.title })}
             href={`/${path}/${post.slug}`}
           >
             {post.metadata.image && (

@@ -1,4 +1,4 @@
-import { getBlogPosts } from "app/lib/utils";
+import { getBlogPosts } from "app/lib/fs";
 
 export const baseUrl = process.env.BASE_URL!;
 

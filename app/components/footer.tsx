@@ -1,3 +1,7 @@
+"use client";
+
+import { logEvent } from "app/lib/utils";
+
 function ArrowIcon() {
   return (
     <svg
@@ -21,6 +25,9 @@ export default function Footer() {
       <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
         <li>
           <a
+            onClick={() =>
+              logEvent("social", { href: "https://youtube.com/@fydemycom" })
+            }
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
@@ -32,6 +39,9 @@ export default function Footer() {
         </li>
         <li>
           <a
+            onClick={() =>
+              logEvent("social", { href: "https://github.com/fydemy" })
+            }
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"

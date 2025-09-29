@@ -10,8 +10,6 @@
     "@types/node": "24.5.2",
     "@types/react": "19.1.15",
     "@types/react-dom": "19.1.9",
-    "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
     "geist": "1.5.1",
     "next": "canary",
     "next-mdx-remote": "^5.0.0",
