@@ -36,4 +36,10 @@ public/
 		└── doc.png/webp
 ```
 
+### .env content
+
+```
+BASE_URL=https://fydemy.com
+```
+
 Made with ❤️ by Fydemy
