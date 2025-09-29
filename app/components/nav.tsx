@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { logEvent } from "app/lib/utils";
 
 const navItems = {
   "/": {
@@ -10,6 +13,9 @@ const navItems = {
   },
   "/event": {
     name: "Event",
+  },
+  "https://discord.gg/7FBpTEXqVj": {
+    name: "Discord",
   },
 };
 
@@ -24,7 +30,11 @@ export function Navbar() {
           <div className="flex flex-row space-x-4 mt-8">
             {Object.entries(navItems).map(([path, { name }]) => {
               return (
-                <Link key={path} href={path}>
+                <Link
+                  key={path}
+                  href={path}
+                  onClick={() => logEvent("nav", { path })}
+                >
                   {name}
                 </Link>
               );

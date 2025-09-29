@@ -1,19 +1,20 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
-import { formatDate, getEventPosts } from "app/lib/utils";
+import { getEventPosts } from "app/lib/fs";
+import { formatDate } from "app/lib/utils";
 import { baseUrl } from "app/sitemap";
 
 export async function generateStaticParams() {
   let posts = getEventPosts();
 
-  return posts.map((post) => ({
+  return (posts || []).map((post) => ({
     slug: post.slug,
   }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  let post = getEventPosts().find((post) => post.slug === slug);
+  let post = getEventPosts()?.find((post) => post.slug === slug);
   if (!post) {
     return;
   }
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }) {
 
 export default async function Event({ params }) {
   const { slug } = await params;
-  let post = getEventPosts().find((post) => post.slug === slug);
+  let post = getEventPosts()?.find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

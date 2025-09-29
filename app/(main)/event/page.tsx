@@ -1,5 +1,5 @@
 import { Posts } from "app/components/posts";
-import { getEventPosts } from "app/lib/utils";
+import { getEventPosts } from "app/lib/fs";
 
 export const metadata = {
   title: "Event",

@@ -1,8 +1,9 @@
 import { Posts } from "app/components/posts";
-import { getEventPosts } from "app/lib/utils";
+import { getEventPosts } from "app/lib/fs";
+import Button from "./components/button";
 
 export default function Page() {
-  const event = getEventPosts();
+  const event = getEventPosts({ latest: true });
 
   return (
     <section>
@@ -13,10 +14,8 @@ export default function Page() {
         We're community-based Software Engineering learning platform.
         <br />
         Mainly using{" "}
-        <a href="https://discord.gg/7FBpTEXqVj" className="underline">
-          Discord
-        </a>
-        . So, join now!
+        <Button path="https://discord.gg/7FBpTEXqVj" title="Discord" />. So,
+        join now!
       </p>
       <div className="my-8">
         <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
