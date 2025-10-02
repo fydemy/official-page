@@ -2,7 +2,7 @@
 
 import { logEvent } from "app/lib/utils";
 
-function ArrowIcon() {
+export function ArrowIcon() {
   return (
     <svg
       width="12"
