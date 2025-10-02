@@ -3,6 +3,8 @@ import { CustomMDX } from "app/components/mdx";
 import { getEventPosts } from "app/lib/fs";
 import { formatDate } from "app/lib/utils";
 import { baseUrl } from "app/sitemap";
+import { ArrowIcon } from "app/components/footer";
+import Link from "app/components/link";
 
 export async function generateStaticParams() {
   let posts = getEventPosts();
@@ -93,6 +95,14 @@ export default async function Event({ params }) {
           {formatDate(post.metadata.publishedAt)}
         </p>
       </div>
+      {post.metadata.link && (
+        <Link
+          href={post.metadata.link}
+          className="bg-gradient-to-tr from-purple-800 to-purple-600 text-white font-medium px-4 py-2 rounded-md text-sm float-right flex items-center justify-center gap-x-2 !mb-5 sm:w-auto w-full"
+        >
+          Add to Calendar <ArrowIcon />
+        </Link>
+      )}
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
