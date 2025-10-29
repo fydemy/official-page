@@ -5,6 +5,7 @@ import { formatDate } from "app/lib/utils";
 import { baseUrl } from "app/sitemap";
 import { ArrowIcon } from "app/components/footer";
 import Link from "app/components/link";
+import { ShareButtons } from "app/components/share-buttons";
 
 export async function generateStaticParams() {
   let posts = getEventPosts();
@@ -106,6 +107,11 @@ export default async function Event({ params }) {
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
+      <ShareButtons
+        url={`${baseUrl}/event/${post.slug}`}
+        title={post.metadata.title}
+        description={post.metadata.person}
+      />
     </section>
   );
 }
