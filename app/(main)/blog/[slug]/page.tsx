@@ -3,6 +3,7 @@ import { CustomMDX } from "app/components/mdx";
 import { getBlogPosts } from "app/lib/fs";
 import { formatDate } from "app/lib/utils";
 import { baseUrl } from "app/sitemap";
+import { ShareButtons } from "app/components/share-buttons";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -96,6 +97,11 @@ export default async function Blog({ params }) {
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
+      <ShareButtons
+        url={`${baseUrl}/blog/${post.slug}`}
+        title={post.metadata.title}
+        description={post.metadata.person}
+      />
     </section>
   );
 }
